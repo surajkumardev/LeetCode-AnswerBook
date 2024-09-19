@@ -1,0 +1,23 @@
+Approach->
+You can Solve These questions by using plenty of approaches like the Nested loop, Mapping, etc
+But This is the question that clears your understanding of to how to understand the question 
+To solve this we are going to use the bitwise xor operator 
+In the Xor operation if we have the same value then we get the output as zero 
+This is the concept that we are going to use here
+Every number has been repeated twice except the one 
+To find that number we are going to use the xor operation 
+Thank you 
+
+//Code->
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+     
+        int ans=0;
+        for(int i: nums){
+            ans=ans^i;
+        }
+        return ans;
+        
+    }
+};
