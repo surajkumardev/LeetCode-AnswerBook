@@ -1,0 +1,38 @@
+-> For solving this question you can use two approach the first approach is brute force approach and the second approach 
+-> Is more optimized approach which is Kadane's Algorithm which states that 
+->Kadane's algorithm is a dynamic programming approach used to solve the maximum subarray problem, which involves finding the contiguous subarray with the maximum sum in an array of numbers.It has time complexity of O(n).]\
+//Brute Force approach
+        int n=5;
+        int arr[5]= {1,2,3,4,5};
+        int maxsum=INT_MIN;
+        for(int st=0;st<n;st++){
+          int cursum=0;
+          for(int end=st;end<n;end++){
+              cursum+=st+arr[end];
+              maxsum=max(cursum,maxsum);
+        }
+          cout<<"The maximum subarray sum is " <<maxusm;
+        }
+-> It will have time complexity of 0(n)^2 which is not so good for the case solving question
+//A better Way to sovle the subarray problem would be kadane's algorithm 
+->Kadane's Algorithm code
+
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        //Code to find the maximum subarray 
+        //Divide and conquer approach 
+        //We can solve this question using the kadanes algorithm
+        int cs=0; int maxsum=INT_MIN;
+        for(int val: nums){
+            cs=cs+val;
+            maxsum= max(cs,maxsum);
+            if(cs<0){
+                cs=0;
+            }
+        }
+        return maxsum;
+        }     
+};
+-> It has time complexity of O(n) that is much better than the brute force approach 
+-> This Kadane's algorithm is mostly used to find the maximum subarray sum 
