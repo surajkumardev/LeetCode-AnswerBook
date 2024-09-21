@@ -1,0 +1,18 @@
+->To Solve this question we need to make a approach that every single day is a best selling day 
+->And make the strategy a/c to that only
+-> We will run the loop from 1 only as we cannot sell without buying the stock. 
+
+//-> Here is the solution for the code 
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int maxprofit=0; int bestbuy=prices[0];
+        for(int i =1;i<prices.size();i++){
+            if(prices[i]>bestbuy){
+                maxprofit=max(maxprofit,prices[i]-bestbuy);
+            }
+            bestbuy=min(bestbuy,prices[i]);
+        }
+        return maxprofit;
+    }
+};
