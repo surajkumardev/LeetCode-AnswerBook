@@ -1,0 +1,43 @@
+-> To solve this question first we may this that this is just an easy question in which we need to compute the answer
+-> By using the power function in the c++, But there is problem in this the movment you are computing small value it is easy for you 
+-> But when you go with higher value will increase multifold like when we need to compute the value for the 10^8, 10^23 
+-> To sovle this question easily we are going to use the approach of binary conversion like power of 4 -> 100 
+-> First we will list some corner cases or edge cases like the if n==0 (Which says that power of any number to the zero will be equal to 1 only)
+
+//-> Here is the code to solve the question. 
+class Solution {
+public:
+    double myPow(double x, int n) {
+        // if(n>0){
+        // int find=(double)n;
+        // int calcu=pow(x,find);
+        // return calcu;
+        // }
+        // else{
+        //     int less=(double)n;
+        //     int calc=1/pow(x,less);
+        //     return calc;
+        // } //My approach but this will not work 
+        if(n==0) return 1.0;
+        if(x==1) return 1.0;
+        if(x==-1 && n%2==0) return 1.0;
+         if(x==-1 && n%2!=0) return -1.0;
+        long binaryForm=n; 
+        if(n<0){
+            x=1/x;
+            binaryForm=-binaryForm;
+        }
+        double ans=1;
+
+            while(binaryForm>0){
+                if(binaryForm%2==1){
+                    ans=ans*x;
+                }
+                x=x*x;
+                binaryForm/=2;
+            }
+            
+    return ans;
+    }
+
+};
