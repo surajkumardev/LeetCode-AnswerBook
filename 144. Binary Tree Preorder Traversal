@@ -1,0 +1,22 @@
+//Approach-> For solving this question you can multiple approaches but a/c to me this approach is very good and it also beat 100% audience 
+//-> First we need to create an array named as (arr) and then we need to call the function that we have created called as preorder and need to pass the root and the array named arr
+class Solution {
+private: 
+    void preorder(TreeNode* root,vector<int> &arr){
+    //you will be given root in these question question no 144 leetcode
+    if(root==NULL) return;
+    arr.push_back(root->val);
+    //Recursively Traversing to the left subtre
+    preorder(root->left, arr);
+    //Recursively Treavering to the right subtree 
+    preorder(root->right,arr);
+    }
+public:
+    vector<int> preorderTraversal(TreeNode* root) {
+    vector<int> arr; //THis is empty array to store the value
+    preorder(root, arr);
+    return arr;
+    }
+};
+
+
