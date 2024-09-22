@@ -1,0 +1,25 @@
+//Approach-> For solving this question you can multiple approaches but a/c to me this approach is easy and it also beat 100% audience 
+//-> First we need to create an array named as (arr) and then we need to call the function that we have created called as postorder and need to pass the root and the array named arr
+//-> To rember the concept of the pre, post and in order traversal you should always think of the root as in pre the root will the first and in the post the root will be traversed at last, In inorder traversal the root will be in middle 
+//-> of the left and right and also remember that the left always comes first as compare to the right.  
+
+class Solution {
+private:   
+ void postroder(TreeNode* root, vector<int> &arr){
+    if(root==NULL){
+        return; 
+    }
+    //postorder -> left->right-> root;
+    postroder(root->left, arr);
+    postroder(root->right, arr);
+    arr.push_back(root->val);
+ }
+
+public:
+    vector<int> postorderTraversal(TreeNode* root) {
+        //code start from here only you have to write the code snippet then return
+        vector<int> arr;
+        postroder(root, arr);
+        return arr;
+    }
+};
