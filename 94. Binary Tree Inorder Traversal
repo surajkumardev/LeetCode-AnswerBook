@@ -1,0 +1,30 @@
+//-> This is the code for the preorder traversal in c++
+//-> The approach beats 100% of the audience 
+//-> IN this approach we create a temp array name as the arr and  then 
+//->create  a function to recursively call for the traversal a/c to preorder traversal 
+//-> Inorder -> Comprises of the Left-> root-> right
+//->IN start differentiating b/w the pre, post and in will be hard 
+//->To simplify this you can remember them with the position of the root, and also the left always comes first and then the right comes 
+
+//code here
+class Solution {
+private: 
+    void inorder(TreeNode* root, vector<int> &arr){
+        if(root==NULL) return; 
+        //inorder -> left->root->right
+        //left->
+        inorder(root->left,arr);
+        //root=>
+        arr.push_back(root->val);
+        //right->
+        inorder(root->right, arr);
+ 
+    }
+public:
+    vector<int> inorderTraversal(TreeNode* root) {
+        vector<int> arr; 
+        inorder(root,arr);    
+        return arr;
+    }
+};
+
