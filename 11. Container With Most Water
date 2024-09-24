@@ -1,0 +1,33 @@
+//-> Approch: 
+//in the brute force approach you will get TLE-> constraint n<10power5 which is 
+//i cannot use n2 as it will be always 10^10 which will always give TLE 
+//So i have to use the Two pointer Approach to sovle this problem 
+// in two pointer approch i have to create two pointer lp-> left pointer and rp->right pointer 
+//Then we will run a while loop for condition lp<rp 
+//will find w=rp-lp eg=5-2=3 the horizontal area that it is going to cover
+//now Height=>h is goint to depend on the minimum bar only you can imagine also if it exceed minimum it will start overflowing 
+// now calculate the curarea;
+//now maxwater=max(curarea, curwater) will check the value of maxwater and curwater and will update is accordingly 
+//now you have to use if else statment because you have to understand that we have to increase the smaller value that is why we are increasing the left pointer only and decreasing the right pointer
+class Solution {
+public:
+    int maxArea(vector<int>& height) {
+        int lp=0, rp=height.size()-1;
+        int maxwater=0; //ans
+        while(lp<rp){
+            int w=rp-lp;
+            int h=min(height[lp],height[rp]);
+            int curarea=w*h;
+            maxwater=max(curarea, maxwater);
+            if(height[lp]<height[rp]){
+                lp++;
+            }
+            else{
+                rp--;
+            }
+            
+        }  
+        return maxwater;
+
+    }
+};
