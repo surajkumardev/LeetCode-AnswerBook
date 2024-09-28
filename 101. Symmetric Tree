@@ -1,0 +1,24 @@
+//Approach-> To sovle this question 
+//-> We have to create a function to check if it is mirror or not
+//-> first condition ->  if(t1==NULL && t2==NULL) this case is for if the tree is empty 
+//second condition ->  if(t1==NULL || t2==NULL) it checks if any of the left or right is empty
+//Third condition -> cheking the values of all stored in the left and the right part 
+//if all the three codition will be true then the answer will be returned as true else false 
+class Solution {
+public:
+    bool ismirrot(TreeNode* t1, TreeNode* t2){
+        if(t1==NULL && t2==NULL){
+            return true;
+        }
+        if(t1==NULL || t2==NULL){
+            return false;
+        }
+        return ((t1->val==t2->val) && ismirrot(t1->left, t2->right)&& ismirrot(t1->right,t2->left));
+    }
+    bool isSymmetric(TreeNode* root) {
+        //crete a fucntion to check it is sym or not
+        return ismirrot(root,root);
+    }
+};
+//T(c)=O(n)
+//S(c)=O(n) //if we don't take the recrusive call then it is O(1)
