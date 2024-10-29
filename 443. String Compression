@@ -1,0 +1,67 @@
+/*//443 String Comprwession
+//Approcah-> 
+1.We have given an array of chracter 
+2. Rules -> 1.iF a comes two time write it as a2 if c comes 3 times replace it with the c3 
+            2. Now ['a', '2', 'b', '2', 'c', '3']
+3. pseduo Code 
+  int index=0; //it is used to assign the value at each index 
+    for(int i=0;i<n;i==){
+        ch=char[i] //a 
+        count=0;    //0 
+        while(int i<n && char[i]==ch){
+              count++, i++;
+                }
+if(count==1){
+  char[ind++]=ch;
+}
+else{
+char[index++]=ch;
+string st=to_string(count);
+for(char dig: str)  //For each loop in the vector 
+  char[index++]=dig;
+}
+i--; //will counter the i++ in the for loop above we have done
+};
+
+4. iF a comes just one time then write it as it is ,
+if it moves more than one then we have write both the character
+and Number of time sit appear in the given array  
+**//to_string -> Used to convert the integer value to the string value in the c++** Used in the college interview 
+
+//Dry Run at 
+int i, index, count, ch, 
+step1 -> ch=a, count=0 now a/c to the number of character we have to increase the count++, 
+8
+//LeetCode for the String Compression problem Which beats the 87.6% of the Audience 
+
+
+class Solution {
+public:
+    int compress(vector<char>& chars) {
+        int n=chars.size();
+        int index=0;  //you can not se the count 0 here as you have reinitalize it every time after the loop 
+        for(int i=0;i<n;i++){
+            char ch=chars[i]; // will store the a 
+            int count=0;
+            while(i<n && chars[i]==ch){
+                count++;
+                i++;
+            }
+            if(count==1){
+                chars[index++]=ch;
+            }
+            else{
+                chars[index++]=ch;
+                string str=to_string(count); //will conver the integer to the string 
+                for(char dig: str){
+                    chars[index++]=dig;
+                }
+            }
+            i--;
+        }
+        
+        chars.resize(index);
+        return index;
+    }
+};
+
