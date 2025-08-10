@@ -1,0 +1,37 @@
+// User function Template for C++
+Approach -> GFG QUESTIon i have to insert the element in the bottom so 
+# i need to create a extra empty temp stack and move all the element of stack s into the temp
+//then insert the required element intot the stack 
+//then move the element from the temp to the required st stack 
+//the just return the stack and you are done 
+
+
+class Solution {
+  public:
+    stack<int> insertAtBottom(stack<int> st, int x) {
+        //this insert the element into the last of the stack 
+        // while(st.size()!=-1){
+        //     st.push(x);
+        // }
+        // return st; 
+      //time complexity-> o(n) -> while loop 
+      //space complexity-> o(n) -> stack space
+
+
+        stack<int> temp; //temp stack 
+        while(!st.empty()){
+            temp.push(st.top());
+            st.pop();
+        }
+        //push the elemnt to the stack 
+        st.push(x);
+        
+        //now push the left element again 
+        while(!temp.empty()){
+            st.push(temp.top());
+            temp.pop();
+        }
+        // st.push(x);
+        return st;
+    }
+};
