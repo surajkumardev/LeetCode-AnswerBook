@@ -1,0 +1,32 @@
+//i need to do the questino in O(1) space complexity but this uses o(n) time compleixty
+
+//approach-> 
+//move the array elements into stack
+//move the stack element into the array 
+//hence you array is reversed 
+
+//eg-> 10 20 30 40 
+stack-> 10-> 20-> 30-> 40 
+//output -> 40-> 30-> 20-> 10 
+//which is the reversed output you expect 
+
+
+
+class Solution {
+public:
+    void reverseString(vector<char>& s) {
+        //using stack to reverse the string
+        stack<char> st; 
+        for(int i=0;i<s.size();i++){
+            st.push(s[i]);
+        }
+        //now pop 
+        int i=0;
+        while(!st.empty()){
+            s[i]=st.top();
+            st.pop();
+            i++;
+        }
+        
+    }
+};
