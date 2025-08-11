@@ -1,0 +1,17 @@
+//Solving this you have to return the largest 3 digit number which is present as the string 
+class Solution {
+public:
+    string largestGoodInteger(string num) {
+        char maxChar='0'-1;  //first intialized the value to maxChar='0'-1;
+        int n=num.size();
+        for(int i=2;i<num.size();i++){ 
+            if(num[i]==num[i-1] && num[i]==num[i-2]){
+                maxChar=max(maxChar, num[i]);
+            }
+        }
+        if(maxChar>='0'){ //check if the machar is greater than 0 or not 
+            return string(3,maxChar); //return the string(3,maxChar); it willl retun 777 or 888
+        }  
+         return ""; //else return the "" empty string 
+    }
+};
