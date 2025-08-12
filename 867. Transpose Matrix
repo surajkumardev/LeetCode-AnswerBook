@@ -1,0 +1,22 @@
+class Solution {
+
+public:
+    vector<vector<int>> transpose(vector<vector<int>>& matrix) {
+        //transpose means we are swaping the m*n to n*m 
+        //The next question asked by interviewer is 
+        // if the given matrix is only m*m like 3*3 only then we can solve this using the
+        // o(1) space compelxity as we will swap the element expect from the diagonal
+
+
+    int m=matrix.size(); //m-> number of rows
+    int n=matrix[0].size(); //number of columns
+
+        vector<vector<int>> result(n,vector<int>(m));
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                result[j][i]=matrix[i][j];
+            }
+        }
+        return result; 
+    }a
+};
